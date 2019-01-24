@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>ログイン</title>
+</head>
+<body>
+    <h2>Gメールでログイン</h2>
+    <label for="username">メールアドレス</label><br>
+	<input type="username" validates :mail,presence: true,format: {with:/.+@.+/} name="username" id ="username"><br>
+	<label for="password">パスワード</label><br>
+	<input type="password" name="password" id="password">
+<br>
+    <form action="/form" method=post>
+	<input type="submit" value="ログイン"> 
+</form>
+</body>

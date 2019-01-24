@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>確認</title>
+</head>
+<body>
+<h1>確認</h1>
+<h2>*メールアドレス*</h2>
+<h3><%= @email %></h3>
+<h2>*送る時間*</h2>
+<h3><%= @time %></h3>
+<h2>*件名*</h2>
+<h3><%= @subject %></h3>
+<h2>*メッセージ*</h2>
+<h3><%= @message %></h3>
+<form action="/after" method=post>
+	<input type="submit" value="送信"> 
+</body>
+</html>
