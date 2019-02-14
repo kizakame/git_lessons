@@ -15,6 +15,10 @@
 <h2>*メッセージ*</h2>
 <h3><%= @message %></h3>
 <form action="/after" method=post>
-	<input type="submit" value="送信"> 
+	<input type="submit" value="送信">
+	<input type="hidden" value="<%= @email %>" name="email">
+	<input type="hidden" value="<%= @subject %>" name="subject">
+	<input type="hidden" value= "<%= @message %>" name="message">
+</form>
 </body>
 </html>

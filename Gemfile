@@ -10,17 +10,16 @@ gem 'fastri'
 gem 'sinatra'
 gem 'sinatra-activerecord'
 gem 'sinatra-contrib'
-gem 'sqlite3'
+gem 'sqlite3', '~> 1.3.6'
 
 gem 'nokogiri'
 gem 'validates_email_format_of'
 gem 'bcrypt'
 gem 'rake'
+gem 'clockwork'
 
-group :development do
-    gem 'sqlite3'
-end
-group :production do
-     gem 'pg'
-end
+# group :development do
+# group :production do
+gem 'pg'
 gem  'ruby-gmail'
+
