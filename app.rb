@@ -8,7 +8,7 @@ require 'sinatra/activerecord'
 require './models'
 require 'gmail'
 require 'date'
-# require "./show_table_action"
+require "./show_table_action"
 
   # USERNAME = "timecapusler"
   # PASSWORD = "mjxbdlilzmukgmrm"
@@ -55,22 +55,26 @@ end
 post '/after' do
  # send_message(@email,@subject,@message)
  @email = params[:email]
+ @date = params[:date]
  @time = params[:time]
  @message = params[:message]
  @subject = params[:subject]
  
- @history = History.create!(email: params[:email],time: params[:time],message: params[:message],subject: params[:subject])
+ # @history = History.create!(email: params[:email],time: params[:time],message: params[:message],subject: params[:subject])
+ @history = History.create!(email: params[:email],time: Time.new,message: params[:message],subject: params[:subject])
  @history.save!
  erb :after
 end
 
 get '/send' do
- @histories = History.where('time<=?',Time.now)
+ @histories = History.where('time<=?', Time.new.strftime("%Y-%m-%dT%H:%M"))
+ @try = Time.new.strftime("%Y-%m-%dT%H:%M")
  @histories.each{|histories|
  send_message(histories.email,histories.subject,histories.message)
  }
+ 
+erb :debug
 end
-
 
 post '/' do
  redirect "/"
