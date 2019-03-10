@@ -3,22 +3,26 @@
 <head>
 	<meta charset="UTF-8">
 	<title>確認</title>
+		<link rel="stylesheet" href="check.css">
 </head>
 <body>
+<div class="contents">
 <h1>確認</h1>
-<h2>*メールアドレス*</h2>
+<h2>メールアドレス</h2>
 <h3><%= @email %></h3>
-<h2>*送る時間*</h2>
-<h3><%= @date %><%= @time %></h3>
-<h2>*件名*</h2>
+<h2>送る時間</h2>
+<h3><%= @time %></h3>
+<h2>件名</h2>
 <h3><%= @subject %></h3>
-<h2>*メッセージ*</h2>
+<h2>メッセージ</h2>
 <h3><%= @message %></h3>
 <form action="/after" method=post>
-	<input type="submit" value="送信">
+	<input type="submit" value="送信" class="send">
 	<input type="hidden" value="<%= @email %>" name="email">
+	<input type="hidden" value="<%= @time %>" name="time">
 	<input type="hidden" value="<%= @subject %>" name="subject">
 	<input type="hidden" value= "<%= @message %>" name="message">
 </form>
+</div>
 </body>
 </html>

@@ -3,12 +3,13 @@
 <head>
 	<meta charset="UTF-8">
 	<title>送信しました</title>
+		<link rel="stylesheet" href="after.css">
 </head>
 <body>
-    <h2><%= @time %></h2>
+    <div class="contents">
     <h1><%= @email %>にメールを送信しました。</h1>   
-    <form action="/form" method=post>
-	<input type="submit" value="最初の画面に戻る"> 
-	
+    <form action="/" method=post>
+	<input type="submit" value="Home" div class="back"> 
+	</div>
 </form>
 </body>

@@ -10,6 +10,7 @@ require 'gmail'
 require 'date'
 require "./show_table_action"
 
+
   # USERNAME = "timecapusler"
   # PASSWORD = "mjxbdlilzmukgmrm"
  def send_message(mail_address, mail_subject, mail_body)
@@ -25,7 +26,7 @@ require "./show_table_action"
    end
    gmail.deliver(message)
    gmail.logout
-  end
+ end
 
 
 
@@ -33,7 +34,7 @@ get '/' do
  erb :log_in
 end
  
-get '/form' do
+post '/form' do
  erb :form
 end
 
@@ -61,18 +62,19 @@ post '/after' do
  @subject = params[:subject]
  
  # @history = History.create!(email: params[:email],time: params[:time],message: params[:message],subject: params[:subject])
- @history = History.create!(email: params[:email],time: Time.new,message: params[:message],subject: params[:subject])
- @history.save!
+ history = History.create!(email: params[:email],time: params[:time],message: params[:message],subject: params[:subject],status:0)
+ history.save!
  erb :after
 end
 
 get '/send' do
- @histories = History.where('time<=?', Time.new.strftime("%Y-%m-%dT%H:%M"))
+ histories = History.where('time<=?', Time.new.strftime("%Y-%m-%dT%H:%M")).where({status:0})
  @try = Time.new.strftime("%Y-%m-%dT%H:%M")
- @histories.each{|histories|
- send_message(histories.email,histories.subject,histories.message)
- }
- 
+ histories.each do |history|
+  send_message(history.email,history.subject,history.message)
+  history.status=1
+  history.save
+ end
 erb :debug
 end
 

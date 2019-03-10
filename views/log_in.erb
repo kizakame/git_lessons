@@ -1,17 +1,62 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-	<meta charset="UTF-8">
-	<title>ログイン</title>
+	<meta charset="utf-8">
+	<title>Top</title>
+	<link rel="stylesheet" href="style.css">
+	<meta name="description" content="好きな時間に指定したメールアドレスにメッセージを送れるサービスです。">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js" type="text/javascript"></script>
+	<script src="particles.min.js"></script>
+  <script src="app.js"></script>
+	</script>
+	
 </head>
 <body>
-    <h2>Gメールでログイン</h2>
-    <label for="username">メールアドレス</label><br>
-	<input type="username" validates :mail,presence: true,format: {with:/.+@.+/} name="username" id ="username"><br>
-	<label for="password">パスワード</label><br>
-	<input type="password" name="password" id="password">
-<br>
-    <form action="/form" method=post>
-	<input type="submit" value="ログイン"> 
-</form>
+	<!-- ログイン画面をつける場合--!>
+<!--    <h2>Gメールでログイン</h2>-->
+<!--    <label for="username">メールアドレス</label><br>-->
+<!--	<input type="username" validates :mail,presence: true,format: {with:/.+@.+/} name="username" id ="username"><br>-->
+<!--	<label for="password">パスワード</label><br>-->
+<!--	<input type="password" name="password" id="password">-->
+<!--<br>-->
+<!--    <form action="/form" method=post>-->
+<!--	<input type="submit" value="ログイン">
+</form>-->
+
+<div class="main">
+
+ <div id="particles-js">
+ <div class="top">
+ 	<div class="inside">
+ 		<h1>Time Capsuler</h1>
+ 		<form action="/form" method=post>
+ 		<input type="submit" value="使ってみる" class="buton_use">
+ 	</div>
+ 	</div>
+ 
+ 
+ 	
+ 	<div class="comment">
+ 	<h2>Time Capsulerとは？</h2>
+ 	 <div class="inside">
+	 <div class="comment_s">
+		<h3>Time Capsulerとは、好きな時間に指定した人にメールを送ることができるWebサービスです。<br>
+			未来の自分にメッセージを送ったり、友達の誕生日になった瞬間にメールを送ったり、リマインダーがわりに使ってみたり...。<br>
+			使い方はあなた次第です！
+		</h3>
+	 </div>
+ </div>
+ </div>
+</div>
+ 
+</div>
+
+
+
+
+
+<script src="particles.min.js"></script>
+<script src="app.js"></script>
+
 </body>
