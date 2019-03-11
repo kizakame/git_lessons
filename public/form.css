@@ -18,11 +18,12 @@ body{
     margin: auto;
     top: 30px;
     width: 520px;
+    overflow: hidden;
 }
 
-h2{
-    font-size: ;
-}
+/*h2{*/
+/*    font-size: ;*/
+/*}*/
 
 #email{
     width: 300px;
@@ -56,6 +57,8 @@ h2{
 @media screen and (max-width:560px){
 .contents{
     width: 80%;
+    margin: auto;
+    overflow: hidden;
 }
 
 #message{

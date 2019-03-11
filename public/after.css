@@ -27,3 +27,13 @@ body{
     text-align: center;
     float: right;
 }
+
+@media screen and (max-width:560px){
+.contents{
+    width: 80%;
+}
+
+h1{
+    font-size: 25px;
+}
+}
