@@ -1,10 +1,17 @@
 @charset "UTF-8";
 
+@font-face {
+	font-family: 'Makinas';
+	src: url("Makinas-4-Square.otf") format("opentype");
+}
 
 html{
     margin: 0;
     padding: 0;
+    font-family: 'Makinas';
 }
+
+
 
 body{
     width: 100%;
@@ -27,6 +34,7 @@ h1{
     color: #88063C;
     font-size: 100px;
     z-index: 50;
+    font-family: 'Makinas';
 }
 
 h2{
@@ -35,7 +43,14 @@ h2{
 	text-align: center;
 	padding: 8px;
 	border: 8px #E9FFA5;
+	font-family: 'Makinas';
 }
+
+h3{
+	font-family: 'Makinas';
+	line-height: 1.5em;
+}
+
 
 .main{
 	top: 0;
@@ -77,6 +92,7 @@ h2{
 	width: 220px;
 	height: 70px;
 	font-size: 35px;
+	font-family: 'Makinas';
 	background-color: #0000;
 	border: double 5px White;
 	top: 40px;

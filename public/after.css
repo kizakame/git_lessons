@@ -5,6 +5,12 @@ html{
     width: 100%;
     margin: 0;
     padding: 0;
+    font-family: 'Makinas';
+}
+
+@font-face {
+	font-family: 'Makinas';
+	src: url("Makinas-4-Square.otf") format("opentype");
 }
 
 body{
@@ -13,6 +19,15 @@ body{
     height: 100%;
     display: flex;
 }
+
+h1{
+    font-family: 'Makinas';
+}
+
+h2{
+    font-family: 'Makinas';
+}
+
 
 .contents{
     margin: auto;
