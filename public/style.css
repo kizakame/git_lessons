@@ -9,6 +9,7 @@ html{
     margin: 0;
     padding: 0;
     font-family: 'Makinas';
+    overflow-x: hidden;
 }
 
 

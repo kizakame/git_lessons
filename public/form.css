@@ -29,17 +29,11 @@ body{
     overflow: hidden;
 }
 
-lebel{
-     line-height: 1.3em;
-}
-
 h2{
-    font-family: "Makinas";
+    font-family: 'Makinas';
 }
 
-/*h2{*/
-/*    font-size: ;*/
-/*}*/
+
 
 #email{
     width: 300px;
@@ -100,7 +94,7 @@ h2{
 }
 
 #message{
-    width: 270px;
+    width: 200px;
     height: 150px;
 }
 
