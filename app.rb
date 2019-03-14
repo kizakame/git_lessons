@@ -8,7 +8,9 @@ require 'sinatra/activerecord'
 require './models'
 require 'gmail'
 require 'date'
+if development?
 require "./show_table_action"
+end
 
 
   # USERNAME = "timecapusler"
