@@ -87,3 +87,7 @@ end
 post '/form' do
  redirect "/form"
 end
+
+post '/models' do
+ erb :aldy_show_sqlite3_tables
+end
