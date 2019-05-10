@@ -20,7 +20,7 @@ gem 'clockwork'
 
 # group :development do
 # group :production do
-gem 'pg'
+# gem 'pg'
 gem  'ruby-gmail'
 
 group :production do
