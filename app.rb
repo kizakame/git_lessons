@@ -8,6 +8,7 @@ require 'sinatra/activerecord'
 require './models'
 require 'gmail'
 require 'date'
+require 'net/smtp'
 # if development?
 require "./show_table_action"
 # end
