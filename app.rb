@@ -71,7 +71,7 @@ end
 
 get '/send' do
  histories = History.where('time<=?', Time.new.strftime("%Y-%m-%dT%H:%M")).where({status:0})
- # @try = Time.new.strftime("%Y-%m-%dT%H:%M")
+ @try = Time.new.strftime("%Y-%m-%dT%H:%M")
  histories.each do |history|
   send_message(history.email,history.subject,history.message)
   history.status=1
