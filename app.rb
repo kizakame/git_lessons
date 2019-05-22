@@ -8,7 +8,6 @@ require 'sinatra/activerecord'
 require './models'
 require 'gmail'
 require 'date'
-require 'net/smtp'
 # if development?
 require "./show_table_action"
 # end
@@ -74,9 +73,11 @@ get '/send' do
  histories = History.where('time<=?', Time.new.strftime("%Y-%m-%dT%H:%M")).where({status:0})
  @try = Time.new.strftime("%Y-%m-%dT%H:%M")
  histories.each do |history|
-  send_message(history.email,history.subject,history.message)
-  history.status=1
-  history.save
+  if history.email.present?
+   send_message(history.email,history.subject,history.message)
+   history.status=1
+   history.save
+  end
  end
 erb :debug
 end
