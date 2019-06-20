@@ -17,6 +17,7 @@ gem 'validates_email_format_of'
 gem 'bcrypt'
 gem 'rake'
 gem 'clockwork'
+gem 'tod'
 
 # group :development do
 # group :production do

@@ -8,6 +8,7 @@ require 'sinatra/activerecord'
 require './models'
 require 'gmail'
 require 'date'
+require 'time'
 # if development?
 require "./show_table_action"
 # end
@@ -37,6 +38,15 @@ get '/' do
 end
  
 post '/form' do
+ 
+  @email = params[:email]
+  @time = params[:time]
+  @message = params[:message]
+  @subject = params[:subject]
+  @date = params[:date]
+  @from = params[:from]
+  
+  
  erb :form
 end
 
@@ -50,35 +60,45 @@ post '/check' do
   @time = params[:time]
   @message = params[:message]
   @subject = params[:subject]
+  @date = params[:date]
+  @from = params[:from]
   erb :check
   
  
 end
 
+
+
 post '/after' do
  # send_message(@email,@subject,@message)
- @email = params[:email]
- @date = params[:date]
- @time = params[:time]
- @message = params[:message]
- @subject = params[:subject]
+  @email = params[:email]
+  @time = params[:time]
+  @message = params[:message]
+  @subject = params[:subject]
+  @date = params[:date]
+  @from = params[:from]
+  
+  
+  Time.zone = "Tokyo"
+  @localtime = Time.zone.parse(@date + " " + @time + ":00")
  
  # @history = History.create!(email: params[:email],time: params[:time],message: params[:message],subject: params[:subject])
- history = History.create!(email: params[:email],time: params[:time],message: params[:message],subject: params[:subject],status:0)
+ history = History.create!(email: params[:email],time: params[:time],message: params[:message],subject: params[:subject],status:0,date: params[:date],from: params[:from],localtime: @localtime)
  history.save!
  erb :after
 end
 
-get '/send' do
- histories = History.where('time<=?', Time.new.strftime("%Y-%m-%dT%H:%M")).where({status:0})
+get '/send' do 
+ # histories = History.where('time<=?', Time.new.strftime("%Y-%m-%dT%H:%M")).where({status:0})
+ histories = History.where('localtime<=?', DateTime.now.strftime("%Y-%m-%dT%H:%M")).where({status:0})
  # @try = Time.new.strftime("%Y-%m-%dT%H:%M")
  histories.each do |history|
   if history.email.present?
   send_message(history.email,history.subject,history.message)
   history.status=1
   history.save
+  end
  end
-end
 erb :debug
 end
 

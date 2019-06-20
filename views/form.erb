@@ -37,11 +37,13 @@ Modernizr.load({
 <form action="/check" method=post class="contents">
 <h2>入力フォーム</h2>
 	<label for="email">メールアドレス</label><br>
-	<input type="email" validates :mail,presence: true,format: {with:/.+@.+/} name="email" id ="email">
+	<input type="email" validates :email,presence: true,format: {with:/.+@.+/} name="email" id ="email">
 <br>
 <br>
 	<label for="time">送る時間</label><br>
-	<input type="datetime-local" name="time" id="time" placeholder="例)2019/01/01 00:00" value="2019-01-01T00:00">
+	<!--<input type="datetime-local" name="time" id="time" placeholder="例)2019/01/01 00:00" value="2019-01-01T00:00">-->
+	<input type="date" name="date" id="date" placeholder="例)2019/01/01" value="2019-01-01">
+	<input type="time" name="time" id="time" placeholder="例)00:00" value="00:00">
 <br>
 <br>
 	<label for="subject">件名</label><br>
@@ -51,6 +53,9 @@ Modernizr.load({
 	<label for="message">メッセージ</label><br>
 	<textarea rows="5" cols="40" name="message" id="message"></textarea>
 <br>
+<br>
+    <label for="from">差出人名</label><br>
+    <input type="text" name="from" id="from">
 <h2></h2>
 <form action="/check" method=post >
 	<input type="submit" value="確認" class="check"> 

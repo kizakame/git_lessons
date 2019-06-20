@@ -10,16 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_28_081639) do
+ActiveRecord::Schema.define(version: 2019_06_20_101013) do
 
   create_table "histories", force: :cascade do |t|
     t.string "email"
-    t.datetime "time"
+    t.string "time"
     t.text "message"
     t.text "subject"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "status"
+    t.string "date"
+    t.text "from"
+    t.datetime "localtime"
   end
 
 end
