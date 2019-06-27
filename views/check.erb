@@ -40,7 +40,7 @@
 	<input type="hidden" value= "<%= @message.gsub(/\r\n|\r|\n/, "<br/>") %><br><br><%= DateTime.now.strftime("%Y-%m-%d-%H-%M") %>&nbsp;&nbsp;" name="message">
 	<input type="hidden" value= "<%= @from %>" name="from">
 </form>
-<form action="/form" method=post>
+<form action="/edit" method=post>
 	<input type="submit" value="編集" class="edit">
 	<input type="hidden" value="<%= @email %>" name="email">
 	<input type="hidden" value="<%= @time %>" name="time">

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>タイムカプセラー</title>
+		<link rel="stylesheet" href="form.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-136257018-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-136257018-1');
+</script>
+<script src="modernizr-custom.js"></script>
+<script>
+Modernizr.load({
+  test: Modernizr.inputtypes.datetime-local,
+  nope: [
+    'http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js',
+    'http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js',
+    'jquery-ui.css'
+  ],
+  complete: function() {
+    $('input[type=['datetime-local']]').datetimepicker({
+      dateFormat: 'YYYY-MM-DD HH:mm:ss'
+    });
+  }
+});
+</script>
+
+</head>
+<body>
+
+<form action="/check" method=post class="contents">
+<h2>入力フォーム</h2>
+	<label for="email">メールアドレス</label><br>
+	<input type="email" validates :email,presence: true,format: {with:/.+@.+/} name="email" id ="email" value=<%= @email%>>
+<br>
+<br>
+	<label for="time">送る時間</label><br>
+	<!--<input type="datetime-local" name="time" id="time" placeholder="例)2019/01/01 00:00" value="2019-01-01T00:00">-->
+	<input type="date" name="date" id="date"  value=<%= @date%>>
+	<input type="time" name="time" id="time"  value=<%= @time%>>
+<br>
+<br>
+	<label for="subject">件名</label><br>
+	<input type="text" name="subject" id="subject" value=<%= @subject %>>
+<br>
+<br>
+	<label for="message">メッセージ</label><br>
+	<textarea rows="5" cols="40" name="message" id="message"> <%= @message %></textarea>
+<br>
+<br>
+    <label for="from">差出人名</label><br>
+    <input type="text" name="from" id="from" value=<%= @from %>>
+<h2></h2>
+<form action="/check" method=post >
+	<input type="submit" value="確認" class="check" value=<%= @check %>> 
+</form>
+</form>
+
+
+</body>
+</html>

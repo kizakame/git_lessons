@@ -67,6 +67,17 @@ post '/check' do
  
 end
 
+post '/edit' do
+  @email = params[:email]
+  @time = params[:time]
+  @message = params[:message]
+  @subject = params[:subject]
+  @date = params[:date]
+  @from = params[:from]
+  
+  erb :edit
+ end
+
 
 
 post '/after' do
