@@ -15,5 +15,5 @@ class Histories < ActiveRecord::Migration[5.2]
   def self.up
   add_column :histories, :date, :date
   end
-    
+
 end

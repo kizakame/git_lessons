@@ -18,7 +18,7 @@ require "./show_table_action"
   # PASSWORD = "mjxbdlilzmukgmrm"
  def send_message(mail_address, mail_subject, mail_body)
   gmail = Gmail.new("timecapusler","mjxbdlilzmukgmrm")
-  message = 
+  message =
    gmail.generate_message do
     to mail_address
     subject mail_subject
@@ -36,23 +36,23 @@ require "./show_table_action"
 get '/' do
  erb :log_in
 end
- 
+
 post '/form' do
- 
+
   @email = params[:email]
   @time = params[:time]
   @message = params[:message]
   @subject = params[:subject]
   @date = params[:date]
   @from = params[:from]
-  
-  
+
+
  erb :form
 end
 
 post '/check' do
  # History.create!(
- #  email: params[:email], 
+ #  email: params[:email],
  #  time: params[:time],
  #  message: params[:message]
  #  )
@@ -63,8 +63,8 @@ post '/check' do
   @date = params[:date]
   @from = params[:from]
   erb :check
-  
- 
+
+
 end
 
 post '/edit' do
@@ -74,7 +74,7 @@ post '/edit' do
   @subject = params[:subject]
   @date = params[:date]
   @from = params[:from]
-  
+
   erb :edit
  end
 
@@ -88,18 +88,18 @@ post '/after' do
   @subject = params[:subject]
   @date = params[:date]
   @from = params[:from]
-  
-  
+
+
   Time.zone = "Tokyo"
   @localtime = Time.zone.parse(@date + " " + @time + ":00")
- 
+
  # @history = History.create!(email: params[:email],time: params[:time],message: params[:message],subject: params[:subject])
  history = History.create!(email: params[:email],time: params[:time],message: params[:message],subject: params[:subject],status:0,date: params[:date],from: params[:from],localtime: @localtime)
  history.save!
  erb :after
 end
 
-get '/send' do 
+get '/send' do
  # histories = History.where('time<=?', Time.new.strftime("%Y-%m-%dT%H:%M")).where({status:0})
  histories = History.where('localtime<=?', DateTime.now.strftime("%Y-%m-%dT%H:%M")).where({status:0})
  # @try = Time.new.strftime("%Y-%m-%dT%H:%M")
@@ -121,4 +121,3 @@ end
 post '/form' do
  redirect "/form"
 end
-
