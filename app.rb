@@ -12,7 +12,7 @@ require 'time'
 # if development?
 require "./show_table_action"
 # end
-
+require 'tzinfo/data'
 
   # USERNAME = "timecapusler"
   # PASSWORD = "mjxbdlilzmukgmrm"

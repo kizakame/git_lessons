@@ -19,16 +19,16 @@ gem 'rake'
 gem 'clockwork'
 gem 'tod'
 
+gem 'tzinfo-data'
 # group :development do
 # group :production do
 # gem 'pg'
 gem  'ruby-gmail'
 
 group :production do
-    gem 'pg' 
+    gem 'pg'
 end
 
-group :development do 
+group :development do
     gem 'sqlite3'
 end
-
