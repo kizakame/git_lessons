@@ -45,7 +45,7 @@
 	<input type="hidden" value="<%= @email %>" name="email">
 	<input type="hidden" value="<%= @time %>" name="time">
 	<input type="hidden" value="<%= @date %>" name="date">
-	<input type="hidden" value="<%= @subject %>&nbsp;&nbsp;/<%= @from %>さんより" name="subject">
+	<input type="hidden" value="<%= @subject %>" name="subject">
 	<input type="hidden" value= "<%= @message.gsub(/\r\n|\r|\n/, "<br/>") %>" name="message">
 	<input type="hidden" value= "<%= @from %>" name="from">
 </form>

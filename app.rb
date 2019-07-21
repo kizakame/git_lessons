@@ -101,7 +101,7 @@ end
 
 get '/send' do
  # histories = History.where('time<=?', Time.new.strftime("%Y-%m-%dT%H:%M")).where({status:0})
- histories = History.where('localtime<=?', DateTime.now.strftime("%Y-%m-%dT%H:%M")).where({status:0})
+ histories = History.where('localtime<=?', DateTime.now.strftime("%Y-%m-%d %H:%M:%S")).where({status:0})
  # @try = Time.new.strftime("%Y-%m-%dT%H:%M")
  histories.each do |history|
   if history.email.present?
