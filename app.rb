@@ -94,14 +94,17 @@ post '/after' do
   @japantime = Time.zone.parse(@date + " " + @time + ":00")
 
  # @history = History.create!(email: params[:email],time: params[:time],message: params[:message],subject: params[:subject])
- history = History.create!(email: params[:email],time: params[:time],message: params[:message],subject: params[:subject],status:0,date: params[:date],from: params[:from],japantime: @japantime)
+ history = History.create!(email: params[:email],time: params[:time],message: params[:message],subject: params[:subject],status:0,date: params[:date],from: params[:from],japantime: @nowtime)
  history.save!
  erb :after
 end
 
 get '/send' do
  # histories = History.where('time<=?', Time.new.strftime("%Y-%m-%dT%H:%M")).where({status:0})
+ @nowtime = DateTime.now.strftime("%Y-%m-%d %H:%M:%S")
+
  histories = History.where('2019-08-30 10:40:00 UTC<=?', DateTime.now.strftime("%Y-%m-%d %H:%M:%S")).where({status:0})
+
  # @try = Time.new.strftime("%Y-%m-%dT%H:%M")
  histories.each do |history|
   if history.email.present?
