@@ -91,17 +91,17 @@ post '/after' do
 
 
   Time.zone = "Tokyo"
-  @localtime = Time.zone.parse(@date + " " + @time + ":00")
+  @japantime = Time.zone.parse(@date + " " + @time + ":00")
 
  # @history = History.create!(email: params[:email],time: params[:time],message: params[:message],subject: params[:subject])
- history = History.create!(email: params[:email],time: params[:time],message: params[:message],subject: params[:subject],status:0,date: params[:date],from: params[:from],localtime: @localtime)
+ history = History.create!(email: params[:email],time: params[:time],message: params[:message],subject: params[:subject],status:0,date: params[:date],from: params[:from],tokyotime: @tokyotime)
  history.save!
  erb :after
 end
 
 get '/send' do
  # histories = History.where('time<=?', Time.new.strftime("%Y-%m-%dT%H:%M")).where({status:0})
- histories = History.where('localtime<=?', DateTime.now.strftime("%Y-%m-%d %H:%M:%S")).where({status:0})
+ histories = History.where('japantime<=?', DateTime.now.strftime("%Y-%m-%d %H:%M:%S")).where({status:0})
  # @try = Time.new.strftime("%Y-%m-%dT%H:%M")
  histories.each do |history|
   if history.email.present?
