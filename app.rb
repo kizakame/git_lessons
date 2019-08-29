@@ -94,7 +94,7 @@ post '/after' do
   @japantime = Time.zone.parse(@date + " " + @time + ":00")
 
  # @history = History.create!(email: params[:email],time: params[:time],message: params[:message],subject: params[:subject])
- history = History.create!(email: params[:email],time: params[:time],message: params[:message],subject: params[:subject],status:0,date: params[:date],from: params[:from],tokyotime: @tokyotime)
+ history = History.create!(email: params[:email],time: params[:time],message: params[:message],subject: params[:subject],status:0,date: params[:date],from: params[:from],japantime: @japantime)
  history.save!
  erb :after
 end

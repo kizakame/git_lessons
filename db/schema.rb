@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_20_101013) do
+ActiveRecord::Schema.define(version: 2019_08_29_075331) do
 
   create_table "histories", force: :cascade do |t|
     t.string "email"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2019_06_20_101013) do
     t.integer "status"
     t.string "date"
     t.text "from"
-    t.datetime "localtime"
+    t.datetime "japantime"
   end
 
 end
