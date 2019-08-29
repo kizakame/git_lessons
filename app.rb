@@ -100,10 +100,10 @@ post '/after' do
 end
 
 get '/send' do
- # histories = History.where('time<=?', Time.new.strftime("%Y-%m-%dT%H:%M")).where({status:0})
- @nowtime = DateTime.now.strftime("%Y-%m-%d %H:%M:%S")
+#  # histories = History.where('time<=?', Time.new.strftime("%Y-%m-%dT%H:%M")).where({status:0})
+#  @nowtime = DateTime.now.strftime("%Y-%m-%d %H:%M:%S")
 
- histories = History.where('japantime<=?', 2019-08-28 10:50:29 UTC).where({status:0})
+ histories = History.where('japantime<=?', DateTime.now.strftime("%Y-%m-%d %H:%M:%S")).where({status:0})
 
  # @try = Time.new.strftime("%Y-%m-%dT%H:%M")
  histories.each do |history|
