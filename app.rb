@@ -101,7 +101,7 @@ end
 
 get '/send' do
  # histories = History.where('time<=?', Time.new.strftime("%Y-%m-%dT%H:%M")).where({status:0})
- histories = History.where('japantime<=?', DateTime.now.strftime("%Y-%m-%d %H:%M:%S")).where({status:0})
+ histories = History.where('2019-08-30 10:30:00 UTC<=?', DateTime.now.strftime("%Y-%m-%d %H:%M:%S")).where({status:0})
  # @try = Time.new.strftime("%Y-%m-%dT%H:%M")
  histories.each do |history|
   if history.email.present?
