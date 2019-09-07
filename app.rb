@@ -14,8 +14,7 @@ require "./show_table_action"
 # end
 require 'tzinfo/data'
 
-  # USERNAME = "timecapusler"
-  # PASSWORD = "mjxbdlilzmukgmrm"
+
  def send_message(mail_address, mail_subject, mail_body)
   gmail = Gmail.new("timecapusler","mjxbdlilzmukgmrm")
   message =
@@ -51,11 +50,6 @@ post '/form' do
 end
 
 post '/check' do
- # History.create!(
- #  email: params[:email],
- #  time: params[:time],
- #  message: params[:message]
- #  )
   @email = params[:email]
   @time = params[:time]
   @message = params[:message]
@@ -81,7 +75,6 @@ post '/edit' do
 
 
 post '/after' do
- # send_message(@email,@subject,@message)
   @email = params[:email]
   @time = params[:time]
   @message = params[:message]
@@ -93,19 +86,15 @@ post '/after' do
   Time.zone = "Tokyo"
   @japantime = Time.zone.parse(@date + " " + @time + ":00")
 
- # @history = History.create!(email: params[:email],time: params[:time],message: params[:message],subject: params[:subject])
+
  history = History.create!(email: params[:email],time: params[:time],message: params[:message],subject: params[:subject],status:0,date: params[:date],from: params[:from],japantime: @japantime)
  history.save!
  erb :after
 end
 
 get '/send' do
-#  # histories = History.where('time<=?', Time.new.strftime("%Y-%m-%dT%H:%M")).where({status:0})
-#  @nowtime = DateTime.now.strftime("%Y-%m-%d %H:%M:%S")
-
  histories = History.where('japantime<=?', DateTime.now.strftime("%Y-%m-%d %H:%M:%S")).where({status:0})
 
- # @try = Time.new.strftime("%Y-%m-%dT%H:%M")
  histories.each do |history|
   if history.email.present?
   send_message(history.email,history.subject,history.message)
