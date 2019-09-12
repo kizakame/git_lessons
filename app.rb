@@ -98,6 +98,7 @@ get '/send' do
  histories.each do |history|
   if history.email.present?
   send_message(history.email,history.subject,history.message)
+
   history.status=1
   history.save
   end
