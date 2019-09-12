@@ -94,8 +94,7 @@ end
 
 get '/send' do
  histories = History.where('japantime<=?', DateTime.now.strftime("%Y-%m-%d %H:%M:%S")).where({status:0})
-new_datetime = datetime.new_offset('-09:00') # 時差を左の形で入力する
-new_datetime.to_s # => "2018-06-19T07:36:25-01:00"
+
 
 
  histories.each do |history|
