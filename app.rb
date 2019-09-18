@@ -44,12 +44,13 @@ post '/form' do
   @subject = params[:subject]
   @date = params[:date]
   @from = params[:from]
-
+Time.zone = "Tokyo"
 
  erb :form
 end
 
 post '/check' do
+@nowtime = DateTime.now + 7.0/24
   @email = params[:email]
   @time = params[:time]
   @message = params[:message]

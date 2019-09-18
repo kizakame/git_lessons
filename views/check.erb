@@ -18,7 +18,7 @@
 </head>
 <body>
 <div class="contents">
-<h1>確認</h1>
+<h1 class="topname">確認</h1>
 <h2>メールアドレス</h2>
 <h3><%= @email %></h3>
 <h2>送る時間</h2>
@@ -37,7 +37,7 @@
 	<input type="hidden" value="<%= @time %>" name="time">
 	<input type="hidden" value="<%= @date %>" name="date">
 	<input type="hidden" value="<%= @subject %>&nbsp;&nbsp;/<%= @from %>さんより" name="subject">
-	<input type="hidden" value= "<%= @message.gsub(/\r\n|\r|\n/, "<br/>") %><br><br><%= DateTime.now.strftime("%Y-%m-%d-%H-%M") %>&nbsp;&nbsp;" name="message">
+	<input type="hidden" value= "<%= @message.gsub(/\r\n|\r|\n/, "<br/>") %><br><br><%= @nowtime %>&nbsp;&nbsp;" name="message">
 	<input type="hidden" value= "<%= @from %>" name="from">
 </form>
 <form action="/edit" method=post>

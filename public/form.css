@@ -29,6 +29,10 @@ body{
     overflow: hidden;
 }
 
+.topname{
+    background: linear-gradient(transparent 50%, #dd9decb3 90%);
+}
+
 h2{
     font-family: 'Makinas';
 }
@@ -64,7 +68,7 @@ h2{
     background-color: #E9FFA5;
     height: 60px;
     width: 60px;
-    border-radius: 20%; 
+    border-radius: 20%;
     text-align: center;
     float: right;
 }
@@ -104,4 +108,3 @@ h2{
 }
 
 }
-

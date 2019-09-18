@@ -35,7 +35,7 @@ Modernizr.load({
 <body>
 
 <form action="/check" method=post class="contents">
-<h2>入力フォーム</h2>
+<h2 class="topname">入力フォーム</h2>
 	<label for="email">メールアドレス</label><br>
 	<input type="email" validates :email,presence: true,format: {with:/.+@.+/} name="email" id ="email" value=<%= @email%>>
 <br>
@@ -58,7 +58,7 @@ Modernizr.load({
     <input type="text" name="from" id="from" value=<%= @from %>>
 <h2></h2>
 <form action="/check" method=post >
-	<input type="submit" value="確認" class="check" value=<%= @check %>> 
+	<input type="submit" value="確認" class="check" value=<%= @check %>>
 </form>
 </form>
 
