@@ -37,7 +37,7 @@
 	<input type="hidden" value="<%= @time %>" name="time">
 	<input type="hidden" value="<%= @date %>" name="date">
 	<input type="hidden" value="<%= @subject %>&nbsp;&nbsp;/<%= @from %>さんより" name="subject">
-	<input type="hidden" value= "<%= @message.gsub(/\r\n|\r|\n/, "<br/>") %><br><br><%= @nowtime %>&nbsp;&nbsp;" name="message">
+	<input type="hidden" value= "<%= @message.gsub(/\r\n|\r|\n/, "<br/>") %><br><br><%= Date.today.strftime("%Y-%m-%d") %>&nbsp;&nbsp;<%= Time.now.strftime("%H:%M") %>" name="message">
 	<input type="hidden" value= "<%= @from %>" name="from">
 </form>
 <form action="/edit" method=post>

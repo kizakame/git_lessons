@@ -50,7 +50,7 @@ Time.zone = "Tokyo"
 end
 
 post '/check' do
-@nowtime = DateTime.now + 7.0/24
+# @nowtime = DateTime.now + 7.0/24
   @email = params[:email]
   @time = params[:time]
   @message = params[:message]
